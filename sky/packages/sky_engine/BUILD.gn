@@ -21,6 +21,7 @@ import("//third_party/dart/sdk/lib/isolate/isolate_sources.gni")
 import("//third_party/dart/sdk/lib/js/js_sources.gni")
 import("//third_party/dart/sdk/lib/js_util/js_util_sources.gni")
 import("//third_party/dart/sdk/lib/math/math_sources.gni")
+import("//third_party/dart/sdk/lib/memory/memory_sources.gni")
 import("//third_party/dart/sdk/lib/typed_data/typed_data_sources.gni")
 import("//third_party/dart/sdk/lib/wasm/wasm_sources.gni")
 
@@ -138,6 +139,13 @@ copy("math") {
       [ "$root_gen_dir/dart-pkg/sky_engine/lib/math/{{source_file_part}}" ]
 }
 
+copy("memory") {
+  lib_path = rebase_path("memory", "", dart_sdk_lib_path)
+  sources = rebase_path(memory_sdk_sources, "", lib_path)
+  outputs =
+      [ "$root_gen_dir/dart-pkg/sky_engine/lib/memory/{{source_file_part}}" ]
+}
+
 copy("typed_data") {
   lib_path = rebase_path("typed_data", "", dart_sdk_lib_path)
   sources = rebase_path(typed_data_sdk_sources, "", lib_path)
@@ -185,6 +193,7 @@ group("copy_dart_sdk") {
     ":js",
     ":js_util",
     ":math",
+    ":memory",
     ":typed_data",
     ":wasm",
   ]

@@ -11,6 +11,7 @@ embedded_libs:
   "dart:js": "js/js.dart"
   "dart:js_util": "js_util/js_util.dart"
   "dart:math": "math/math.dart"
+  "dart:memory": "memory/memory.dart"
   "dart:typed_data": "typed_data/typed_data.dart"
   "dart:ui": "ui/ui.dart"
   "dart:wasm": "wasm/wasm.dart"
